@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- 👇 google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- 👆 google fonts -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jogo da Velha" />
+
+  <!--👇 favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <!--👆 favicon -->
+
+  <!--👇 styles -->
+  <link rel="stylesheet" href="/src/css/reset.css">
+  <link rel="stylesheet" href="/src/css/style.css">
+  <!--👆 styles -->
+  <title>Jogo da Velha</title>
+</head>
+
+<body>
+  <main class="wrapper">
+    <section class="flow" id="gameScreen" data-visibility="hidden" data-turn="cross">
+      <div class="modal" data-visibility="hidden" id="gameCompleteModal">
+        <div class="modal__inner flow text-center">
+          <h2 class='winnerText' id="gameCompleteText">Empate</h2>
+          <div class="cluster justify-center gutter-space-s">
+            <button class="button" data-type="primary" id="gameCompleteExitBtn">Sair</button>
+            <button class="button" data-type="secondary" id="gameCompleteNextRoundBtn">+1 round</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu ">
+        <div class="turn">
+          <p class="turn__text">Vez de <br></p>
+        </div>
+        <button class="buttonIcon justify-self-end" id="openRestartModalBtn" data-type="primary" aria-label="Reiniciar jogo"><img src="./src/imgs/restart.svg" alt=""></button>
+        <div class="modal" data-visibility="hidden" id="restartModal">
+          <div class="modal__inner flow text-center">
+            <h2>Reiniciar Jogo?</h2>
+            <div class="cluster justify-center gutter-space-s">
+              <button class="button" data-type="primary" id="restartNoBtn">Não, volte</button>
+              <button class="button" data-type="secondary" id="restartYesBtn">Sim, reinicie</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="board" aria-label="Tabuleiro. Clique em uma célula para fazer uma jogada.">
+        <button class="cell" data-id="cell" id="0"></button>
+        <button class="cell" data-id="cell" id="1"></button>
+        <button class="cell" data-id="cell" id="2"></button>
+        <button class="cell" data-id="cell" id="3"></button>
+        <button class="cell" data-id="cell" id="4"></button>
+        <button class="cell" data-id="cell" id="5"></button>
+        <button class="cell" data-id="cell" id="6"></button>
+        <button class="cell" data-id="cell" id="7"></button>
+        <button class="cell" data-id="cell" id="8"></button>
+      </div>
+      <ul class="score" aria-label="Pontuação dos jogadores">
+        <li class="flow bg-primary-300">
+          <p id="crossName">X(P1)</p>
+          <p class="font-bold text-fs-3" id="crossScore">0</p>
+        </li>
+        <li class="flow bg-neutral-300">
+          <p>Empates</p>
+          <p class="font-bold text-fs-3" id="tiesScore">0</p>
+        </li>
+        <li class="flow bg-secondary-300">
+          <p id="circleName">O(P2)</p>
+          <p class="font-bold text-fs-3" id="circleScore">0</p>
+        </li>
+      </ul>
+    </section>
+    <section class="flow" data-visibility="visible" id="homeScreen">
+      <form class="settings flow" id="settingsForm">
+        <fieldset class="flow">
+          <legend>Nick dos jogadores</legend>
+          <div class="flow">
+            <label for="nameP1">Player 1</label>
+            <input class="settings__input" id="nameP1" name="nameP1" type="text" required>
+          </div>
+          <div class="flow">
+            <label for="nameP2">Player 2</label>
+            <input class="settings__input" id="nameP2" name="nameP2" type="text" required>
+          </div>
+          <p class="text-center">Lembre-se: X começa</p>
+        </fieldset>
+
+      </form>
+      <button class="button w-full" id="startBtn" data-type="secondary">Novo Jogo</button>
+    </section>
+  </main>
+  <footer>Feito com 💛 por <a class="text-primary-400" href="https://github.com/guidiasz " target="_blank">Guilherme Dias</a></footer>
+  <script type="module" src="./src/js/app.js"></script>
+</body>
+
+</html>
