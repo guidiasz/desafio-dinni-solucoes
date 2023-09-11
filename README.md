@@ -10,7 +10,8 @@ https://desafio-dinni-solucoes.vercel.app/
 
 ## Como instalar
 Basta clonar o repositório. O projeto usa `js modules`, então é necessário um plugin como `live-server` para executar corretamente.
-##📚 Detalhes
+
+## Detalhes
 Usei a metodologia [CUBE](https://cube.fyi/)https://cube.fyi/ para o CSS. 
 Já o javascript foi organizado no padrão MVC.
 
